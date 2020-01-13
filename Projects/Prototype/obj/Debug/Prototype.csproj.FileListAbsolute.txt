@@ -1,0 +1,9 @@
+C:\Users\Imbaker1234\source\repos\Prototype\bin\Debug\Prototype.dll
+C:\Users\Imbaker1234\source\repos\Prototype\bin\Debug\Prototype.pdb
+C:\Users\Imbaker1234\source\repos\Prototype\bin\Debug\System.ValueTuple.dll
+C:\Users\Imbaker1234\source\repos\Prototype\bin\Debug\System.ValueTuple.xml
+C:\Users\Imbaker1234\source\repos\Prototype\obj\Debug\Prototype.csproj.CoreCompileInputs.cache
+C:\Users\Imbaker1234\source\repos\Prototype\obj\Debug\Prototype.csproj.CopyComplete
+C:\Users\Imbaker1234\source\repos\Prototype\obj\Debug\Prototype.dll
+C:\Users\Imbaker1234\source\repos\Prototype\obj\Debug\Prototype.pdb
+C:\Users\Imbaker1234\source\repos\Prototype\obj\Debug\Prototype.csprojAssemblyReference.cache
