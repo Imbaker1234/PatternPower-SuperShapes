@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commands", "Projects\Comman
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype", "Projects\Prototype\Prototype.csproj", "{AAF0CBC9-6DEB-4BF5-BAC7-0A1CD8D15729}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProProxy", "ProProxy\ProProxy.csproj", "{6A3A650E-A8F3-43E8-B0E0-64CD6B409BAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AAF0CBC9-6DEB-4BF5-BAC7-0A1CD8D15729}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAF0CBC9-6DEB-4BF5-BAC7-0A1CD8D15729}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAF0CBC9-6DEB-4BF5-BAC7-0A1CD8D15729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A3A650E-A8F3-43E8-B0E0-64CD6B409BAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A3A650E-A8F3-43E8-B0E0-64CD6B409BAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A3A650E-A8F3-43E8-B0E0-64CD6B409BAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A3A650E-A8F3-43E8-B0E0-64CD6B409BAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
