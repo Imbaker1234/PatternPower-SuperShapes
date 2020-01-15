@@ -58,11 +58,5 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Prototype\Prototype.csproj">
-      <Project>{aaf0cbc9-6deb-4bf5-bac7-0a1cd8d15729}</Project>
-      <Name>Prototype</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
