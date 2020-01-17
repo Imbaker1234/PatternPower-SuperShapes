@@ -10,23 +10,23 @@ namespace ProProxyTests
     [TestFixture]
     public class LogProxyTests
     {
-//        [Test]
-//        public void LogProxyWillLogBeforeAndAfterTests()
-//        {
-//            var ls = new LogShell((type, b, args) => WriteLine($"{DateTime.Now} -- Entering {type}{b.Name}({string.Join(",", args)})"),
-//                    (type, b, args) => WriteLine($"{DateTime.Now} -- Exiting {type}.{b.Name}"),
-//                    (type, b, args, e) =>
-//                        WriteLine(
-//                            $"{DateTime.Now} -- EXCEPTION: {type}.{b.Name}({string.Join(",", args)}: {e.Message}"));
-//
-//            var loggedWriter =
-//                LogProxy<LogWriter>.As<ILogWriter>(new LogWriter(),
-//                    loggedWriter.Write("Writing to file");
-//
-//            WriteLine();
-//
-//            loggedWriter.Write("Writing to another file");
-//        }
+        [Test]
+        public void LogProxyWillLogBeforeAndAfterTests()
+        {
+            var ls = new LogShell((type, b, args) => WriteLine($"{DateTime.Now} -- Entering {type}{b.Name}({string.Join(",", args)})"),
+                    (type, b, args) => WriteLine($"{DateTime.Now} -- Exiting {type}.{b.Name}"),
+                    (type, b, args, e) =>
+                        WriteLine(
+                            $"{DateTime.Now} -- EXCEPTION: {type}.{b.Name}({string.Join(",", args)}: {e.Message}"));
+
+            // var loggedWriter =
+            //     LogProxy<LogWriter>.As<ILogWriter>(new LogWriter(),
+            //         loggedWriter.Write("Writing to file");
+
+            WriteLine();
+
+            // loggedWriter.Write("Writing to another file");
+        }
 
         [Test]
         public void FastMember()
@@ -46,6 +46,7 @@ namespace ProProxyTests
 
             WriteLine(accessor[receipt, "Amount"]);
         }
+
 
         [Test]
         public void PrintMembers()
