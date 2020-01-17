@@ -5,15 +5,15 @@ namespace ProProxy
 {
     public class LogShell
     {
-        public Action<string, InvokeMemberBinder, object[]> _preAction, _postAction;
+        public Action<string, InvokeMemberBinder, object[]> PreAction, PostAction;
 
-        public Action<string, InvokeMemberBinder, object[], Exception> _responseOnFailure;
+        public Action<string, InvokeMemberBinder, object[], Exception> ResponseOnFailure;
 
         public LogShell(Action<string, InvokeMemberBinder, object[]> preAction, Action<string, InvokeMemberBinder, object[]> postAction, Action<string, InvokeMemberBinder, object[], Exception> responseOnFailure)
         {
-            _preAction = preAction;
-            _postAction = postAction;
-            _responseOnFailure = responseOnFailure;
+            PreAction = preAction;
+            PostAction = postAction;
+            ResponseOnFailure = responseOnFailure;
         }
     }
 }

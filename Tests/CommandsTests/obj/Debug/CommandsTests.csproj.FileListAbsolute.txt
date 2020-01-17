@@ -20,3 +20,7 @@ C:\Users\Imbaker1234\source\repos\CommandsTests\bin\Debug\Castle.Core.xml
 C:\Users\Imbaker1234\source\repos\CommandsTests\bin\Debug\Moq.xml
 C:\Users\Imbaker1234\source\repos\CommandsTests\bin\Debug\Prototype.dll
 C:\Users\Imbaker1234\source\repos\CommandsTests\bin\Debug\Prototype.pdb
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Tests\CommandsTests\obj\Debug\CommandsTests.csprojAssemblyReference.cache
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Tests\CommandsTests\obj\Debug\CommandsTests.csproj.CoreCompileInputs.cache
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Tests\CommandsTests\obj\Debug\CommandsTests.dll
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Tests\CommandsTests\obj\Debug\CommandsTests.pdb
