@@ -23,7 +23,6 @@ namespace ProProxyTests
 
             var bigWriter =
                 DecoratorProxy<BigWriter>.As<IBigWriter>(ds);
-;
 
 
             writer.Write("LogWriter: KingKrab");

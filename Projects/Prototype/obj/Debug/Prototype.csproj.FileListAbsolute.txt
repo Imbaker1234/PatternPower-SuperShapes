@@ -7,3 +7,14 @@ C:\Users\Imbaker1234\source\repos\Prototype\obj\Debug\Prototype.csproj.CopyCompl
 C:\Users\Imbaker1234\source\repos\Prototype\obj\Debug\Prototype.dll
 C:\Users\Imbaker1234\source\repos\Prototype\obj\Debug\Prototype.pdb
 C:\Users\Imbaker1234\source\repos\Prototype\obj\Debug\Prototype.csprojAssemblyReference.cache
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Projects\Prototype\bin\Debug\Prototype.dll
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Projects\Prototype\bin\Debug\Prototype.pdb
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Projects\Prototype\bin\Debug\nunit.framework.dll
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Projects\Prototype\bin\Debug\nunit.framework.pdb
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Projects\Prototype\bin\Debug\nunit.framework.xml
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Projects\Prototype\bin\Debug\System.ValueTuple.xml
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Projects\Prototype\obj\Debug\Prototype.csprojAssemblyReference.cache
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Projects\Prototype\obj\Debug\Prototype.csproj.CoreCompileInputs.cache
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Projects\Prototype\obj\Debug\Prototype.csproj.CopyComplete
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Projects\Prototype\obj\Debug\Prototype.dll
+C:\Users\Imbaker1234\source\repos\PatternPower-SuperShapes\Projects\Prototype\obj\Debug\Prototype.pdb

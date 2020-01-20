@@ -15,5 +15,7 @@ namespace ProProxy
             PostAction = postAction;
             ResponseOnFailure = responseOnFailure;
         }
+
+        private Type MappedType { get; set; } = typeof(LogProxy<object>);
     }
 }

@@ -6,22 +6,19 @@ using ImpromptuInterface;
 
 namespace ProProxy
 {
-    public class DecoratorProxy<T> : DynamicObject where T : class, new()
+    public class DecoratorProxy<T> : BaseProxy<T> where T : class, new()
     {
         protected Action PreAction, PostAction;
 
         protected Action<Exception> ResponseOnFailure;
 
-        protected T Subject;
 
-        protected DecoratorProxy(T subject, Action preAction, Action postAction, Action<Exception> responseOnFailure)
+        public DecoratorProxy(Action preAction, Action postAction, Action<Exception> responseOnFailure, T innerSubject) : base(innerSubject)
         {
-            Subject = subject;
             PreAction = preAction;
             PostAction = postAction;
             ResponseOnFailure = responseOnFailure;
         }
-
 
         /// <exception cref="T:System.ArgumentException">'I' must be an Interface!</exception>
         public static I As<I>(Action preAction, Action postAction, Action<Exception> responseOnFailure, T subject = null) where I : class
@@ -30,7 +27,7 @@ namespace ProProxy
                 throw new ArgumentException("'I' must be an Interface!");
 
             if (subject is null) subject = new T();
-            var product = new DecoratorProxy<T>(subject, preAction, postAction, responseOnFailure).ActLike<I>();
+            var product = new DecoratorProxy<T>(preAction, postAction, responseOnFailure, subject).ActLike<I>();
 
             return product;
         }
@@ -48,8 +45,8 @@ namespace ProProxy
             {
                 PreAction?.Invoke();
 
-                result = Subject.GetType().GetMethod(binder.Name).Invoke(Subject, args);
-                
+                base.TryInvokeMember(binder, args, out result);
+
                 PostAction?.Invoke();
 
                 return true;
