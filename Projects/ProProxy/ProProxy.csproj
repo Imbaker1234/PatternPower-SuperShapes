@@ -57,8 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cache\MethodDefiner.cs" />
-    <Compile Include="Cache\PropertyDefiner.cs" />
+    <Compile Include="Cache\DelegateCache.cs" />
     <Compile Include="Proxies\DecoratorProxy.cs" />
     <Compile Include="Shells\DecoratorShell.cs" />
     <Compile Include="Proxies\LogProxy.cs" />

@@ -25,7 +25,7 @@ namespace ProProxyTests
             proProxy.Speak("Warmup");
             reflectiveProxy.Speak("Warmup");
 
-            int testCount = 1000;
+            int testCount = 20000;
 
             nonSw.Start();
             for (int i = 0; i < testCount; i++)
