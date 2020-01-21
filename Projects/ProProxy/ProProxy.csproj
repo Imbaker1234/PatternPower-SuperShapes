@@ -57,15 +57,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cache\TypeCache.cs" />
+    <Compile Include="Cache\MethodDefiner.cs" />
+    <Compile Include="Cache\PropertyDefiner.cs" />
     <Compile Include="Proxies\DecoratorProxy.cs" />
     <Compile Include="Shells\DecoratorShell.cs" />
     <Compile Include="Proxies\LogProxy.cs" />
     <Compile Include="Shells\LogShell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Abstract-Interface\BaseProxy.cs" />
-    <Compile Include="Cache\ActionCache.cs" />
-    <Compile Include="Cache\TypeCacheStore.cs" />
+    <Compile Include="Abstract-Interface\Proxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

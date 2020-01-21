@@ -15,13 +15,7 @@ namespace ProProxyTests
         [Test]
         public void TypeCache_Actions_Will_Be_More_Performant_Than_Reflection()
         {
-            var ls = new LogShell(
-                (type, b, args) => WriteLine($"{DateTime.Now} -- Entering {type}{b.Name}({string.Join(",", args)})"),
-                (type, b, args) => WriteLine($"{DateTime.Now} -- Exiting {type}.{b.Name}"),
-                (type, b, args, e) =>
-                    WriteLine(
-                        $"{DateTime.Now} -- EXCEPTION: {type}.{b.Name}({string.Join(",", args)}: {e.Message}"));
-
+            var ls = new LogShell(null, null, null);
             var nonProxy = new Dummy();
             var proProxy = LogProxy<Dummy>.As<IDummy>(ls);
             var reflectiveProxy = ReflectiveLogProxy<Dummy>.As<IDummy>(ls);
@@ -89,14 +83,15 @@ namespace ProProxyTests
 
             for (int j = 0; j < 10; j++)
             {
-                var ls = new LogShell(
-                    (type, b, args) =>
-                        WriteLine($"{DateTime.Now} -- Entering {type}{b.Name}({string.Join(",", args)})"),
-                    (type, b, args) => WriteLine($"{DateTime.Now} -- Exiting {type}.{b.Name}"),
-                    (type, b, args, e) =>
-                        WriteLine(
-                            $"{DateTime.Now} -- EXCEPTION: {type}.{b.Name}({string.Join(",", args)}: {e.Message}"));
+//                var ls = new LogShell(
+//                    (type, b, args) =>
+//                        WriteLine($"{DateTime.Now} -- Entering {type}{b.Name}({string.Join(",", args)})"),
+//                    (type, b, args) => WriteLine($"{DateTime.Now} -- Exiting {type}.{b.Name}"),
+//                    (type, b, args, e) =>
+//                        WriteLine(
+//                            $"{DateTime.Now} -- EXCEPTION: {type}.{b.Name}({string.Join(",", args)}: {e.Message}"));
 
+                var ls = new LogShell(null, null, null);
                 var nonProxy = new Dummy();
                 var proProxy = LogProxy<Dummy>.As<IDummy>(ls);
                 var reflectiveProxy = ReflectiveLogProxy<Dummy>.As<IDummy>(ls);

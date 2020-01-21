@@ -4,7 +4,7 @@ using ImpromptuInterface;
 
 namespace ProProxy
 {
-    internal class ReflectiveLogProxy<T> : BaseProxy<T> where T : class, new()
+    internal class ReflectiveLogProxy<T> : Proxy<T> where T : class, new()
     {
         protected Action<string, InvokeMemberBinder, object[]> PreAction, PostAction;
 

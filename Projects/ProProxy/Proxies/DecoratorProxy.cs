@@ -6,7 +6,7 @@ using ImpromptuInterface;
 
 namespace ProProxy
 {
-    public class DecoratorProxy<T> : BaseProxy<T> where T : class, new()
+    public class DecoratorProxy<T> : Proxy<T> where T : class, new()
     {
         protected Action PreAction, PostAction;
 
