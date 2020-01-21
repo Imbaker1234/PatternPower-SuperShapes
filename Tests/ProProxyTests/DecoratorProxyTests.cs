@@ -2,6 +2,8 @@
 using System.Security.Cryptography.X509Certificates;
 using NUnit.Framework;
 using ProProxy;
+using ProProxy.Proxies;
+using ProProxy.Shells;
 using static System.Console;
 
 namespace ProProxyTests

@@ -1,9 +1,12 @@
 ﻿using System;
+using ProProxy.Proxies;
 
-namespace ProProxy
+namespace ProProxy.Shells
 {
-    public class DecoratorShell
+    public class DecoratorShell : IShell
     {
+        public Type CorrespondingProxy { get; set; } = typeof(DecoratorProxy<>);
+
         internal Action PreAction, PostAction;
 
         internal Action<Exception> ResponseOnFailure;

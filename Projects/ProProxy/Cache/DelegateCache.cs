@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 
 namespace ProProxy.Cache
 {
@@ -56,13 +58,16 @@ namespace ProProxy.Cache
                 typeof(Func<,,,,,,,,,,,,,,,,>)
             };
 
-            foreach (var method in typeof(T).GetMethods())
+            foreach (var method in typeof(T).GetMethods(BindingFlags.Public | BindingFlags.Instance))
             {
                 if (method.Name.Contains("Equals")) continue;
 
                 List<Type> paramTypes = new List<Type>();
-
-                if (method.ReturnType != typeof(void)) paramTypes.Add(method.ReturnType);
+                int minus = 1;
+                if (method.ReturnType != typeof(void))
+                {
+                    paramTypes.Add(method.ReturnType);
+                }
 
                 paramTypes.AddRange(
                     method.GetParameters().Select(p => p.ParameterType));
@@ -73,11 +78,16 @@ namespace ProProxy.Cache
 
                 try
                 {
-                    _impl.Add(method.Name, method.CreateDelegate(delType, _instance));
+                    _impl.Add(method.Name, Delegate.CreateDelegate(delType, _instance, method));
                 }
                 catch (Exception e)
                 {
-                    throw new Exception($"FAILED TO CACHE DELEGATE: {method.Name}: {e.Message}");
+                    var providedTypes = paramTypes.Select(p => p.ToString());
+                    var expectedTypes = method.GetParameters().Select(p => p.ToString());
+                    Console.WriteLine(paramTypes.ToString());
+                    throw new Exception($"FAILED TO CACHE DELEGATE: {method.Name}: {e.Message}\n" +
+                                        $"ProvidedTypes: {string.Join(",", providedTypes)}\n" +
+                                        $"ExpectedTypes: {string.Join(",", expectedTypes)}\n");
                 }
             }
         }

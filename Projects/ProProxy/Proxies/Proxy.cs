@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using Dynamitey;
+using ImpromptuInterface;
 using ProProxy.Cache;
+using ProProxy.Shells;
 
-namespace ProProxy
+namespace ProProxy.Proxies
 {
     public abstract class Proxy<T> : DynamicObject where T : class, new()
     {
@@ -26,7 +26,15 @@ namespace ProProxy
             DelegateCache = new DelegateCache<T>(InnerSubject);
         }
 
-        /// <exception cref="T:System.Exception">Condition.</exception>
+        protected static T ValidateInterface(Type innerSubject, Type outerInterface, T instance)
+        {
+            if (!outerInterface.IsInterface) throw new ArgumentException("As<I>: 'I' must be an Interface!", "Type<I>");
+            if (typeof(T).IsAssignableFrom(outerInterface)) throw new ArgumentException(
+                "As<I>: InnerSubject must implement 'I' interface!", nameof(innerSubject));
+
+            return instance ?? (instance = new T());
+        }
+
         public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
         {
             result = DelegateCache[binder.Name].FastDynamicInvoke(args);

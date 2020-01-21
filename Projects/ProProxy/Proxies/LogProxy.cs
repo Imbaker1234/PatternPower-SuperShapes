@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Dynamic;
 using ImpromptuInterface;
+using ProProxy.Shells;
 
-namespace ProProxy
+namespace ProProxy.Proxies
 {
     public class LogProxy<T> : Proxy<T> where T : class, new()
     {
@@ -10,7 +11,9 @@ namespace ProProxy
 
         protected Action<string, InvokeMemberBinder, object[], Exception> ResponseOnFailure;
 
-        internal LogProxy(Action<string, InvokeMemberBinder, object[]> preAction, Action<string, InvokeMemberBinder, object[]> postAction, Action<string, InvokeMemberBinder, object[], Exception> responseOnFailure, T innerSubject) : base(innerSubject)
+        internal LogProxy(Action<string, InvokeMemberBinder, object[]> preAction, Action<string, InvokeMemberBinder, 
+            object[]> postAction, Action<string, InvokeMemberBinder, object[], Exception> responseOnFailure, 
+            T innerSubject) : base(innerSubject)
         {
             PreAction = preAction;
             PostAction = postAction;
@@ -20,22 +23,19 @@ namespace ProProxy
         /// <exception cref="T:System.ArgumentException">'I' must be an Interface!</exception>
         public static I As<I>(Action<string, InvokeMemberBinder, object[]> preAction, 
             Action<string, InvokeMemberBinder, object[]> postAction, Action<string, 
-                InvokeMemberBinder, object[], Exception> responseOnFailure, T subject = null) where I : class
+                InvokeMemberBinder, object[], Exception> responseOnFailure, T instance = null) where I : class
         {
-            if (!typeof(I).IsInterface)
-                throw new ArgumentException("'I' must be an Interface!", "Type<I>");
+            instance = ValidateInterface(typeof(T), typeof(I), instance);
 
-            if (subject is null) subject = new T();
-
-            var product = new LogProxy<T>(preAction, postAction, responseOnFailure, subject).ActLike<I>();
+            var product = new LogProxy<T>(preAction, postAction, responseOnFailure, instance).ActLike<I>();
 
             return product;
         }
 
         /// <exception cref="T:System.ArgumentException">'I' must be an Interface!</exception>
-        public static I As<I>(LogShell ls, T subject = null) where I : class
+        public static I As<I>(LogShell ls, T instance = null) where I : class
         {
-            return As<I>(ls.PreAction, ls.PostAction, ls.ResponseOnFailure, subject);
+            return As<I>(ls.PreAction, ls.PostAction, ls.ResponseOnFailure, instance);
         }
 
 

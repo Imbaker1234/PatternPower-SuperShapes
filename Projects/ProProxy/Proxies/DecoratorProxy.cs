@@ -1,16 +1,16 @@
 ﻿using System;
-using System.CodeDom;
 using System.Dynamic;
-using System.Runtime.CompilerServices;
 using ImpromptuInterface;
+using ProProxy.Shells;
 
-namespace ProProxy
+namespace ProProxy.Proxies
 {
     public class DecoratorProxy<T> : Proxy<T> where T : class, new()
     {
         protected Action PreAction, PostAction;
 
         protected Action<Exception> ResponseOnFailure;
+
 
 
         public DecoratorProxy(Action preAction, Action postAction, Action<Exception> responseOnFailure, T innerSubject) : base(innerSubject)
@@ -21,13 +21,11 @@ namespace ProProxy
         }
 
         /// <exception cref="T:System.ArgumentException">'I' must be an Interface!</exception>
-        public static I As<I>(Action preAction, Action postAction, Action<Exception> responseOnFailure, T subject = null) where I : class
+        public static I As<I>(Action preAction, Action postAction, Action<Exception> responseOnFailure, T instance = null) where I : class
         {
-            if (!typeof(I).IsInterface)
-                throw new ArgumentException("'I' must be an Interface!");
+            instance = ValidateInterface(typeof(T), typeof(I), instance);
 
-            if (subject is null) subject = new T();
-            var product = new DecoratorProxy<T>(preAction, postAction, responseOnFailure, subject).ActLike<I>();
+            var product = new DecoratorProxy<T>(preAction, postAction, responseOnFailure, instance).ActLike<I>();
 
             return product;
         }

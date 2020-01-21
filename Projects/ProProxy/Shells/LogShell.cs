@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Dynamic;
+using ProProxy.Proxies;
 
-namespace ProProxy
+namespace ProProxy.Shells
 {
     public class LogShell
     {
+        public Type CorrespondingProxy { get; set; } = typeof(LogProxy<>);
+
         public Action<string, InvokeMemberBinder, object[]> PreAction, PostAction;
 
         public Action<string, InvokeMemberBinder, object[], Exception> ResponseOnFailure;
@@ -15,7 +18,5 @@ namespace ProProxy
             PostAction = postAction;
             ResponseOnFailure = responseOnFailure;
         }
-
-        private Type MappedType { get; set; } = typeof(LogProxy<object>);
     }
 }

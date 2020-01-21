@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Dynamic;
 using ImpromptuInterface;
+using ProProxy.Proxies;
+using ProProxy.Shells;
 
 namespace ProProxy
 {

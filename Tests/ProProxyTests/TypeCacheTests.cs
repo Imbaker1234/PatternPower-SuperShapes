@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Dynamitey;
 using NUnit.Framework;
 using ProProxy;
 using FluentAssertions;
+using ProProxy.Proxies;
+using ProProxy.Shells;
 using static System.Console;
 
 namespace ProProxyTests
