@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using Dynamitey;
 using NUnit.Framework;
 using ProProxy;
 using ProProxy.Proxies;
@@ -42,17 +43,23 @@ namespace ProProxyTests
                         $"{DateTime.Now} -- EXCEPTION: {type}.{b.Name}({string.Join(",", args)}: {e.Message}"));
 
             var regularWriter = new LogWriter();
-            var loggedWriter = LogProxy<LogWriter>.As<ILogWriter>(ls);
 
-            regularWriter.WriteMultiple("Regular Writer", 32, DateTime.Now, 'a');
-            loggedWriter.WriteMultiple("Logged Writer", 21, DateTime.Now.AddDays(-1), 'b');
+            var loggedWriter = LogProxy<LogWriter>
+                .As<ILogWriter>(ls);
+
+            regularWriter.Calculate(10, 4,1,3,5,6);
+            loggedWriter.Write(loggedWriter.Calculate(5, 4, 3, 2,6,8).ToString());
+            loggedWriter.Write(loggedWriter.Calculate(5, 2,7,8,6,4).ToString());
+
+            regularWriter.WriteMultiple("Krab", 32, DateTime.Now, 'a', "1wq", "23w", "45t");
+            loggedWriter.WriteMultiple("King", 21, DateTime.Now.AddDays(-1), 'b', "asd", "qaz", "123");
         }
     }
 
     public class LogWriter
     {
         public void Write(string text) => WriteLine(text);
-
+        public int Calculate(int a, int b, int c, int d, int e, int f) => a * b * c + d + e + f;
         public string WriteMultiple(string text, int num, DateTime today, char grade, params string[] additionalStrings)
         {
             var sb = new StringBuilder("\n");
@@ -66,7 +73,7 @@ namespace ProProxyTests
                 sb.Append($"Additional String {i}: {additionalStrings[i]}\n");
             }
 
-            Console.WriteLine(sb);
+            WriteLine(sb);
             return sb.ToString();
         }
     }
@@ -74,6 +81,7 @@ namespace ProProxyTests
     public interface ILogWriter
     {
         void Write(string text);
+        int Calculate(int a, int b, int c, int d, int e, int f);
         string WriteMultiple(string text, int num, DateTime today, char grade, params string[] additionalStrings);
     }
 }

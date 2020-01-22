@@ -4,7 +4,6 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace ProProxy.Cache
 {
@@ -12,6 +11,7 @@ namespace ProProxy.Cache
     {
         private IDictionary<string, Delegate> _impl;
         private T _instance;
+        
         public DelegateCache(T instance)
         {
             _instance = instance;
@@ -60,17 +60,17 @@ namespace ProProxy.Cache
 
             foreach (var method in typeof(T).GetMethods(BindingFlags.Public | BindingFlags.Instance))
             {
-                if (method.Name.Contains("Equals")) continue;
-
                 List<Type> paramTypes = new List<Type>();
+
                 int minus = 1;
+
+                paramTypes.AddRange(
+                    method.GetParameters().Select(p => p.ParameterType));
+
                 if (method.ReturnType != typeof(void))
                 {
                     paramTypes.Add(method.ReturnType);
                 }
-
-                paramTypes.AddRange(
-                    method.GetParameters().Select(p => p.ParameterType));
 
                 var sourceArray = method.ReturnType == typeof(void) ? genericActionArray : genericFuncArray;
 
@@ -78,7 +78,8 @@ namespace ProProxy.Cache
 
                 try
                 {
-                    _impl.Add(method.Name, Delegate.CreateDelegate(delType, _instance, method));
+                    var @delegate = Delegate.CreateDelegate(delType, _instance, method);
+                    _impl.Add(method.Name, @delegate);
                 }
                 catch (Exception e)
                 {
