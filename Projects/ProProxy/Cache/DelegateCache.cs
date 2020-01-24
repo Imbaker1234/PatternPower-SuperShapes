@@ -86,9 +86,11 @@ namespace ProProxy.Cache
                     var providedTypes = paramTypes.Select(p => p.ToString());
                     var expectedTypes = method.GetParameters().Select(p => p.ToString());
                     Console.WriteLine(paramTypes.ToString());
-                    throw new Exception($"FAILED TO CACHE DELEGATE: {method.Name}: {e.Message}\n" +
+                    var ex = new Exception($"FAILED TO CACHE DELEGATE: {method.Name}: {e.Message}\n" +
                                         $"ProvidedTypes: {string.Join(",", providedTypes)}\n" +
                                         $"ExpectedTypes: {string.Join(",", expectedTypes)}\n");
+
+                    throw ex;
                 }
             }
         }
