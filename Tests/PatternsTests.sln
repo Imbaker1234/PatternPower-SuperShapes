@@ -13,7 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProProxy", "..\Projects\Pro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commands", "..\Projects\Commands\Commands.csproj", "{E89C3678-A526-4E25-AF39-DE4E49BA2DFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProProxyTests", "ProProxyTests\ProProxyTests.csproj", "{EEC3F916-E65F-40D2-A65E-CBCA24252CB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProProxy.Tests", "ProProxyTests\ProProxy.Tests.csproj", "{EEC3F916-E65F-40D2-A65E-CBCA24252CB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeCache", "..\TypeCache\TypeCache.csproj", "{9B1F36F1-6C1B-44CF-B898-49A19F9D83AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{EEC3F916-E65F-40D2-A65E-CBCA24252CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEC3F916-E65F-40D2-A65E-CBCA24252CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEC3F916-E65F-40D2-A65E-CBCA24252CB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B1F36F1-6C1B-44CF-B898-49A19F9D83AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B1F36F1-6C1B-44CF-B898-49A19F9D83AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B1F36F1-6C1B-44CF-B898-49A19F9D83AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B1F36F1-6C1B-44CF-B898-49A19F9D83AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
